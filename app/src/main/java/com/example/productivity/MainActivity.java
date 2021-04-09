@@ -13,11 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    public void goToLogin(View view) {
         Intent i = new Intent(this, LoginPage.class);
         finish();
         startActivity(i, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
+
 }
