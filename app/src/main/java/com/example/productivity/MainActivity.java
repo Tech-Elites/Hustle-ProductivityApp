@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToLogin(View view) {
         Intent i = new Intent(this, LoginPage.class);
+        finish();
         startActivity(i, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 }
