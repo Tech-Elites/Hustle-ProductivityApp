@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Productivity">
+        <activity android:name=".IssueInfoTeamLead"></activity>
+        <activity android:name=".IssueInfoEmployee" />
+        <activity android:name=".CreateNewIssue" />
+        <activity android:name=".TeamDetails" />
+        <activity android:name=".NotificationPage" />
+        <activity android:name=".TeamLeadLanding" />
+        <activity android:name=".EmployeeLanding" />
+        <activity android:name=".LoginPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
