@@ -60,6 +60,7 @@ public class LoginPage extends AppCompatActivity {
                         {
                             Toast.makeText(LoginPage.this, "Logged in", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(LoginPage.this, EmployeeLanding.class);
+                            finish();
                             startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
 //                            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("userinfo").child("customer");
 //                            databaseReference.addValueEventListener(new ValueEventListener() {
