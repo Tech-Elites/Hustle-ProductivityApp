@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".TeamLeadLanding">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team lead landing"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="271dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
