@@ -4,46 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     tools:context=".LoginPage">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
+            android:id="@+id/Header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="40dp"
-            android:textAlignment="center"
-            android:padding="10dp"
-            android:textColor="@color/black"/>
+            android:layout_height="150dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textSize="40dp"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/LoginPageEmail"
+        <LinearLayout
+            android:id="@+id/LoginPanel"
+            android:padding="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/Header"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="40dp"
+            android:paddingTop="70dp"
+            android:paddingLeft="80dp"
+            android:paddingRight="50dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:layout_height="300dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/LoginPagePassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            <EditText
+                android:id="@+id/LoginPageEmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColorHint="@color/white"
+                android:hint="Email" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="LoginPageLoginButton"
-            android:text="Button" />
-    </LinearLayout>
+            <EditText
+
+                android:id="@+id/LoginPagePassword"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:backgroundTint="@color/white"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:inputType="textPassword"
+                android:layout_marginBottom="10dp"
+                android:hint="Password" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_marginTop="20dp"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:textSize="20dp"
+
+                android:onClick="LoginPageLoginButton"
+                android:background="#FFEB3B"
+                android:text="Log In" />
+        </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBarLoginPage"
