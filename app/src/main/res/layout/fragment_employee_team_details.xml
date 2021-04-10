@@ -7,17 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".employeeTeamDetails" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="384dp"
-        android:text="employee team details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:text="Team details (Employee)" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/EmployeeDetailsPageListLeft"
+                android:layout_width="match_parent"
+                android:layout_weight="50"
+                android:layout_height="match_parent" >
+
+            </ListView>
+
+            <ListView
+                android:id="@+id/EmployeeDetailsPageListRight"
+                android:layout_width="match_parent"
+                android:layout_weight="50"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
