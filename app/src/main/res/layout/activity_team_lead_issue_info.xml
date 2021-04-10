@@ -18,25 +18,25 @@
             android:id="@+id/issueNameTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="" />
 
         <TextView
             android:id="@+id/issueDesTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="" />
 
         <TextView
             android:id="@+id/issueLinkTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Appllied members-" />
+            android:text="" />
 
         <ListView
             android:layout_width="match_parent"
@@ -45,8 +45,10 @@
         <TextView
             android:id="@+id/t10"
             android:layout_width="match_parent"
+            android:visibility="invisible"
             android:layout_height="wrap_content"
-            android:text="No applications for far" />
+            android:text="No one applied so far" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

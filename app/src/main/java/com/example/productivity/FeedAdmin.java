@@ -140,6 +140,7 @@ public class FeedAdmin extends Fragment {
 
             }
         });
+        adminFeedProgressbar.setVisibility(View.INVISIBLE);
 
 
     }
