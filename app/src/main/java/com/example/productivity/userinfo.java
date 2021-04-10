@@ -3,7 +3,16 @@ package com.example.productivity;
 import java.util.HashMap;
 
 public class userinfo {
-    String name,userid;
+    String name,userid,emailid;
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
+
+    public String getEmailid() {
+        return emailid;
+    }
+
     userinfo()
     {}
 
@@ -22,12 +31,6 @@ public class userinfo {
     public String getUserid() {
         return userid;
     }
-    public HashMap<String,Object> getDetails(String name,String userid)
-    {
-        HashMap<String,Object> details=new HashMap<>();
-        details.put("name",name);
-        details.put("userid",userid);
-        return  details;
-    }
+
 
 }

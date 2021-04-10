@@ -4,12 +4,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -76,7 +81,9 @@ public class employeeTeamDetails extends Fragment {
     ArrayList<UserDetailClass> usersLeft;
     ArrayList<UserDetailClass> usersRight;
     ListView listViewLeft, listViewRight;
+    TextView heading;
     CustomAdapterEmployTeamDetail adapterLeft, adapterRight;
+    ProgressBar progressBarTeamDetails;
     int i;
 
     @Override
@@ -84,9 +91,75 @@ public class employeeTeamDetails extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         usersLeft = new ArrayList<>();
         usersRight = new ArrayList<>();
+        heading=getView().findViewById(R.id.headingEmployee);
+        progressBarTeamDetails=getView().findViewById(R.id.progressBarTeamDetails);
+        progressBarTeamDetails.setVisibility(View.VISIBLE);
+        heading.setText("Team Alpha");
+        listViewLeft=getView().findViewById(R.id.EmployeeDetailsPageListLeft);
+        listViewRight=getView().findViewById(R.id.EmployeeDetailsPageListRight);
+        listViewRight.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                OnClickItemListenerForRightList(position);
+            }
+        });
+        listViewLeft.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                onClickItemListenerForLeftList(position);
+            }
+        });
         getDetailsFromDB();
         i=0;
+
     }
+    void onClickItemListenerForLeftList(int index)
+    {
+        if(usersLeft.size()>0)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
+            TextView t=viewInflated.findViewById(R.id.promptMemberName);
+            t.setText(usersLeft.get(index).getName());
+
+            TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
+            t1.setText(usersLeft.get(index).getEmail());
+
+            TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
+            t2.setText("Credits- "+usersLeft.get(index).getPoints());
+
+            builder.setView(viewInflated);
+
+            builder.setPositiveButton("Ok", null);
+
+            builder.show();
+        }
+    }
+    void OnClickItemListenerForRightList(int index)
+    {
+        if(usersRight.size()>0)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
+            TextView t=viewInflated.findViewById(R.id.promptMemberName);
+            t.setText(usersRight.get(index).getName());
+
+            TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
+            t1.setText(usersRight.get(index).getEmail());
+
+            TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
+            t2.setText("Credits- "+usersRight.get(index).getPoints());
+
+            builder.setView(viewInflated);
+
+            builder.setPositiveButton("Ok", null);
+
+            builder.show();
+        }
+    }
+
 
     void getDetailsFromDB(){
         try {
@@ -175,12 +248,12 @@ public class employeeTeamDetails extends Fragment {
     }
 
     void buildListView(){
-        listViewLeft = getView().findViewById(R.id.EmployeeDetailsPageListLeft);
-        listViewRight = getView().findViewById(R.id.EmployeeDetailsPageListRight);
+
         adapterLeft = new CustomAdapterEmployTeamDetail(getActivity(), usersLeft);
         adapterRight = new CustomAdapterEmployTeamDetail(getActivity(), usersRight);
 
         listViewLeft.setAdapter(adapterLeft);
         listViewRight.setAdapter(adapterRight);
+        progressBarTeamDetails.setVisibility(View.INVISIBLE);
     }
 }
