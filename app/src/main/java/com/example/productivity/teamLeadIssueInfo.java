@@ -33,7 +33,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
     ArrayList<String> nameList=new ArrayList<>();
     ArrayList<String> userIdLists=new ArrayList<>();
     ArrayList<String> finaluserIdLists=new ArrayList<>();
-    ArrayAdapter<String> arrayAdapter;
+    CustomAdapterIssuePendingAdmin arrayAdapter;
     String link;
     String key="";
     TextView noApplications;
@@ -53,7 +53,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
         iDes=findViewById(R.id.issueDesTeamLeadIssueInfo);
         headingApplication=findViewById(R.id.textView9);
         iLink=findViewById(R.id.issueLinkTeamLeadIssueInfo);
-        arrayAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,nameList);
+        arrayAdapter=new CustomAdapterIssuePendingAdmin(this, nameList);
         listOfSubmissions=findViewById(R.id.listOfNamesLead);
         listOfSubmissions.setAdapter(arrayAdapter);
         listOfSubmissions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -280,8 +280,8 @@ public class teamLeadIssueInfo extends AppCompatActivity {
                     {
                         headingApplication.setText("Applications so far-");
                         nameList.add(name);
-                        arrayAdapter.notifyDataSetChanged();
-
+                        arrayAdapter=new CustomAdapterIssuePendingAdmin(teamLeadIssueInfo.this, nameList);
+                        listOfSubmissions.setAdapter(arrayAdapter);
                     }
                 }
                 p.setVisibility(View.INVISIBLE);

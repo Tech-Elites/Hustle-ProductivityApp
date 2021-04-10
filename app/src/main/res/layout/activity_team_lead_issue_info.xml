@@ -28,6 +28,15 @@
             android:textSize="30dp" />
 
         <TextView
+            android:paddingTop="20dp"
+            android:fontFamily="@font/nexabold"
+            android:paddingLeft="10dp"
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title:" />
+
+        <TextView
             android:id="@+id/issueNameTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +44,17 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/nexabold"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="22dp"
             android:text="" />
+
+        <TextView
+            android:paddingTop="20dp"
+            android:fontFamily="@font/nexabold"
+            android:paddingLeft="10dp"
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description:" />
 
         <TextView
             android:id="@+id/issueDesTeamLeadIssueInfo"
@@ -45,9 +63,18 @@
             android:fontFamily="@font/nexabold"
             android:layout_marginTop="10dp"
             android:paddingLeft="10dp"
-            android:textSize="18dp"
+            android:textSize="22dp"
             android:textColor="@color/black"
             android:text="" />
+
+        <TextView
+            android:paddingTop="20dp"
+            android:fontFamily="@font/nexabold"
+            android:paddingLeft="10dp"
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Link:" />
 
         <TextView
             android:id="@+id/issueLinkTeamLeadIssueInfo"
@@ -57,21 +84,24 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:paddingLeft="10dp"
-            android:textSize="18dp"
+            android:textSize="22dp"
             android:text="" />
 
         <TextView
             android:id="@+id/textView9"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+
             android:paddingLeft="10dp"
-            android:textSize="18dp"
+            android:textSize="22dp"
             android:textColor="@color/black"
             android:text="" />
 
         <ListView
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:id="@+id/listOfNamesLead"
             android:layout_height="wrap_content"
