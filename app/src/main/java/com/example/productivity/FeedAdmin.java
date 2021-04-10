@@ -94,7 +94,7 @@ public class FeedAdmin extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+
 
                 for(DataSnapshot snapshot1:snapshot.getChildren())
                 {
