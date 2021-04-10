@@ -137,28 +137,46 @@ public class EmployeeAccountDetails extends Fragment {
     }
     void fillTheNoPending()
     {
-
+        issueNames.clear();
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.issues);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snapshot1:snapshot.getChildren())
                 {
-                    if(snapshot1.getKey().compareTo("applied")==0)
+                    int flag=0;
+                    String temp="";
+                    for(DataSnapshot snapshot2:snapshot1.getChildren())
                     {
-                        for(DataSnapshot snapshot2:snapshot1.getChildren())
-                        {
-                            if(userId.compareTo(snapshot2.getValue().toString())==0)
-                            {
-                                count++;
 
+                        if(snapshot2.getKey().compareTo("applied")==0)
+                        {
+                            for(DataSnapshot snapshot3:snapshot2.getChildren())
+                            {
+                                if(userId.compareTo(snapshot3.getValue().toString())==0)
+                                {
+                                    count++;
+                                    flag=1;
+                                    break;
+                                }
                             }
                         }
+                        if(snapshot2.getKey().compareTo("name")==0)
+                        {
+                            temp=snapshot2.getValue().toString();
+                        }
+
+                    }
+                    if(flag==1)
+                    {
+                        issueNames.add(temp);
                     }
                 }
                 nameOfTheEmployee.setText(name);
                 noOfCredits.setText("Credits- "+credits);
                 noOfPendingApplications.setText("Pending- "+Integer.toString(count));
+                customAdapterIssuePendingAdmin=new CustomAdapterIssuePendingAdmin(getActivity(),issueNames);
+                lPending.setAdapter(customAdapterIssuePendingAdmin);
 
             }
 
