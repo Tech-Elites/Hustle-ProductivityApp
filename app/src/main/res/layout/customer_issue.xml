@@ -36,26 +36,26 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="49dp"
+                android:layout_width="40dp"
                 android:layout_height="49dp"
                 android:layout_gravity="left"
-                android:background="@tools:sample/avatars" />
+                android:background="@drawable/logoo" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="49dp"
-                android:layout_height="49dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
-                android:background="@tools:sample/avatars" />
+                android:background="@drawable/loggoo" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="49dp"
-                android:layout_height="49dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="left"
-                android:background="@tools:sample/avatars" />
+                android:background="@drawable/logoogoo" />
         </LinearLayout>
 
     </LinearLayout>
