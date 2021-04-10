@@ -154,7 +154,7 @@ public class EmployeeFeedPage extends Fragment {
 
             }
         });
-
+        adminFeedProgressbar.setVisibility(View.INVISIBLE);
 
     }
 
