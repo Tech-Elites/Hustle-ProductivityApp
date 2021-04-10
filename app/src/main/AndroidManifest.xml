@@ -15,6 +15,7 @@
         <activity android:name=".CreateNewIssue" />
         <activity android:name=".TeamDetails" />
         <activity android:name=".NotificationPage" />
+        <activity android:name=".EachIssueScreen" />
         <activity
             android:name=".TeamLeadLanding"
             android:windowSoftInputMode="adjustPan" />
