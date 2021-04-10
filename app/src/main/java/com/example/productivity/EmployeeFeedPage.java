@@ -84,18 +84,18 @@ public class EmployeeFeedPage extends Fragment {
         adminFeedProgressbar.setVisibility(View.VISIBLE);
         fillTheListView();
 
-//        issueList.setOnItemClickListener(
-//                new AdapterView.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                        Toast.makeText(getActivity(), "CLICKED", Toast.LENGTH_SHORT).show();
-////                        Intent intent = new Intent(getActivity(), EachIssueScreen.class);
-////                        intent.putExtra("issuename",issueClassArrayList.get(position).getIssueName());
-////                        intent.putExtra("issuedes",issueClassArrayList.get(position).getIssueDes());
-////                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
-//                    }
-//                }
-//        );
+        issueList.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Toast.makeText(getActivity(), "CLICKED", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(getActivity(), EachIssueScreen.class);
+//                        intent.putExtra("issuename",issueClassArrayList.get(position).getIssueName());
+//                        intent.putExtra("issuedes",issueClassArrayList.get(position).getIssueDes());
+//                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                    }
+                }
+        );
 
     }
 
