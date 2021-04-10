@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +37,14 @@ public class teamLeadIssueInfo extends AppCompatActivity {
     String link;
     String key="";
     TextView noApplications;
+    ProgressBar p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_lead_issue_info);
+        p=findViewById(R.id.eachIssueAppliedProgress);
+        p.setVisibility(View.VISIBLE);
+
         Intent intent =getIntent();
         noApplications=findViewById(R.id.t10);
 
@@ -276,8 +281,10 @@ public class teamLeadIssueInfo extends AppCompatActivity {
                         headingApplication.setText("Applications so far-");
                         nameList.add(name);
                         arrayAdapter.notifyDataSetChanged();
+
                     }
                 }
+                p.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -285,6 +292,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
 
             }
         });
+
     }
 
 }

@@ -4,51 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".teamLeadIssueInfo">
+    tools:context=".teamLeadIssueInfo"
+    android:background="@drawable/viewissue">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="90dp"
         tools:layout_editor_absoluteY="120dp"
-        android:paddingTop="60dp">
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:padding="10dp"
+            android:text="Issue Details:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/issueNameTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nexabold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
             android:text="" />
 
         <TextView
             android:id="@+id/issueDesTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
             android:text="" />
 
         <TextView
             android:id="@+id/issueLinkTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:textSize="18dp"
             android:text="" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
             android:text="" />
 
         <ListView
             android:layout_width="match_parent"
             android:id="@+id/listOfNamesLead"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
         <TextView
             android:id="@+id/t10"
             android:layout_width="match_parent"
             android:visibility="invisible"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
             android:text="No one applied so far" />
 
-
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/eachIssueAppliedProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

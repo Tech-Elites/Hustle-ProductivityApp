@@ -235,7 +235,6 @@ public class employeeTeamDetails extends Fragment {
 
                     }
                     showAdminDetails();
-                    buildListView();
 
                 }
 
