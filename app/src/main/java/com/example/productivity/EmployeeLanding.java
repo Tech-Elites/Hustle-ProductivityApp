@@ -15,7 +15,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class EmployeeLanding extends AppCompatActivity {
@@ -54,6 +58,10 @@ public class EmployeeLanding extends AppCompatActivity {
 
         exclaimation=findViewById(R.id.exclaimationwork);
         exclaimation.setText("");
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.employeeBottomTabBar);
+        NavController navController = Navigation.findNavController(this,  R.id.fragment);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
     public void OnClickNoti(View view)
     {
