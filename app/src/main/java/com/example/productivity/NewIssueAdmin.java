@@ -1,6 +1,9 @@
 package com.example.productivity;
 
+import android.app.ActivityOptions;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -108,7 +111,20 @@ public class NewIssueAdmin extends Fragment {
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful())
                     {
-                        Toast.makeText(getActivity(), "Issue Added!!", Toast.LENGTH_SHORT).show();
+                        new AlertDialog.Builder(getActivity())
+                                .setIcon(android.R.drawable.ic_dialog_info)
+                                .setTitle("Success!")
+                                .setMessage("Issue raised!!")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent i = new Intent(getActivity(),TeamLeadLanding.class);
+                                        getActivity().finish();
+                                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+
+                                    }
+                                })
+                                .show();
                     }
                 }
             });
