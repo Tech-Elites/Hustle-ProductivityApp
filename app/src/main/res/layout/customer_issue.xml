@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/issueName"
@@ -38,29 +39,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/list_view_border"
+            android:padding="4dp"
+            >
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="40dp"
-                android:layout_height="49dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+
                 android:background="@drawable/logoo" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="left"
+
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/loggoo" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="left"
+
                 android:background="@drawable/logoogoo" />
         </LinearLayout>
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmployeeLanding">
+    tools:context=".EmployeeLanding"
+    android:background="@drawable/landing">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
                 android:id="@+id/notificationToolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFD706"
+                android:background="@color/dBlack"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +50,7 @@
                     android:id="@+id/notifyButton"
                     android:layout_width="37dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/ic_baseline_notifications_24"
+                    android:background="@drawable/bell_yellow"
                     android:onClick="OnClickNoti" />
 
                 <TextView
@@ -58,7 +59,7 @@
                     android:layout_height="19dp"
                     android:paddingLeft="5dp"
                     android:text="!"
-                    android:textColor="#fff"
+                    android:textColor="@color/yellow"
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
@@ -72,7 +73,7 @@
         android:id="@+id/employeeBottomTabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#363636"
+        android:background="@color/dBlack"
         app:itemTextColor="@color/bottom_tab_colors"
         app:itemIconTint="@color/bottom_tab_colors"
         app:layout_constraintBottom_toBottomOf="parent"

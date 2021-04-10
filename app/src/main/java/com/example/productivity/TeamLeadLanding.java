@@ -51,7 +51,7 @@ public class TeamLeadLanding extends AppCompatActivity {
         setContentView(R.layout.activity_team_lead_landing);
         Toolbar t=findViewById(R.id.notificationToolBar2);
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),
-                R.drawable.ic_baseline_menu_open_24);
+                R.drawable.menu_yellow);
         t.setOverflowIcon(drawable);
         setSupportActionBar(t);
 
