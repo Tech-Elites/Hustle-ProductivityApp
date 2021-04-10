@@ -12,16 +12,24 @@
         android:layout_weight="50"
         android:padding="5dp"
         android:orientation="vertical">
-
-        <ImageView
-
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_gravity="center"
-            android:background="@drawable/ic_baseline_supervised_user_circle_24"
+            android:background="@drawable/button1">
 
-            />
+            <ImageView
+
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/each_user"
+                android:backgroundTint="#ffd706"
+                />
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/customEmployeeTeamDetName"
@@ -29,7 +37,10 @@
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:textColor="@color/white"
-            android:padding="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
             android:text="Name" />
 
     </LinearLayout>
