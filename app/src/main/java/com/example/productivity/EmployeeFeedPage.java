@@ -76,10 +76,13 @@ public class EmployeeFeedPage extends Fragment {
         }
     }
 
+    ArrayList<String> issueLinks;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         issueList=getView().findViewById(R.id.issueListEmployee);
+        issueLinks=new ArrayList<>();
         adminFeedProgressbar=getView().findViewById(R.id.progressBarEmployeeFeed);
         adminFeedProgressbar.setVisibility(View.VISIBLE);
         fillTheListView();
@@ -89,10 +92,11 @@ public class EmployeeFeedPage extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Toast.makeText(getActivity(), "CLICKED", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(getActivity(), EachIssueScreen.class);
-//                        intent.putExtra("issuename",issueClassArrayList.get(position).getIssueName());
-//                        intent.putExtra("issuedes",issueClassArrayList.get(position).getIssueDes());
-//                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                        Intent intent = new Intent(getActivity(), EachIssueScreen.class);
+                        intent.putExtra("issuename",issueClassArrayList.get(position).getIssueName());
+                        intent.putExtra("issuedes",issueClassArrayList.get(position).getIssueDes());
+                        intent.putExtra("issueLinks",issueLinks.get(position));
+                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
                     }
                 }
         );
@@ -113,7 +117,7 @@ public class EmployeeFeedPage extends Fragment {
                     issueClass i=new issueClass();
                     for(DataSnapshot snapshot2:snapshot1.getChildren())
                     {
-                        String tempDes,tempName;
+                        String tempDes,tempName, tempLink;
 
 
                         if(snapshot2.getKey().compareTo("des")==0)
@@ -127,6 +131,11 @@ public class EmployeeFeedPage extends Fragment {
                             tempName=snapshot2.getValue().toString();
 
                             i.setIssueName(tempName);
+                        }
+                        if(snapshot2.getKey().compareTo("link")==0)
+                        {
+                            tempLink=snapshot2.getValue().toString();
+                            issueLinks.add(tempLink);
                         }
 
                     }

@@ -38,5 +38,18 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
+        <TextView
+            android:id="@+id/alreadyAppliedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You have already applied your changes." />
+
+        <Button
+            android:id="@+id/applyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="eachIssueEmployeeApply"
+            android:text="Apply" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
