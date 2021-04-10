@@ -117,23 +117,30 @@ public class TeamDetailsAdmin extends Fragment {
     {
         if(usersLeft.size()>0)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            try {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-            View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
-            TextView t=viewInflated.findViewById(R.id.promptMemberName);
-            t.setText(usersLeft.get(index).getName());
+                View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
+                TextView t=viewInflated.findViewById(R.id.promptMemberName);
+                t.setText(usersLeft.get(index).getName());
 
-            TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
-            t1.setText(usersLeft.get(index).getEmail());
+                TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
+                t1.setText(usersLeft.get(index).getEmail());
 
-            TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
-            t2.setText("Credits- "+usersLeft.get(index).getPoints());
+                TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
+                t2.setText("Credits- "+usersLeft.get(index).getPoints());
 
-            builder.setView(viewInflated);
+                builder.setView(viewInflated);
 
-            builder.setPositiveButton("Ok", null);
+                builder.setPositiveButton("Ok", null);
 
-            builder.show();
+                builder.show();
+
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
 
         }
     }
@@ -141,23 +148,27 @@ public class TeamDetailsAdmin extends Fragment {
     {
         if(usersRight.size()>0)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            try {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-            View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
-            TextView t=viewInflated.findViewById(R.id.promptMemberName);
-            t.setText(usersRight.get(index).getName());
+                View viewInflated = LayoutInflater.from(getActivity()).inflate(R.layout.promptteamdetails, getView().findViewById(android.R.id.content), false);
+                TextView t=viewInflated.findViewById(R.id.promptMemberName);
+                t.setText(usersRight.get(index).getName());
 
-            TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
-            t1.setText(usersRight.get(index).getEmail());
+                TextView t1=viewInflated.findViewById(R.id.promptMemberEmail);
+                t1.setText(usersRight.get(index).getEmail());
 
-            TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
-            t2.setText("Credits- "+usersRight.get(index).getPoints());
+                TextView t2=viewInflated.findViewById(R.id.promptMemberPoint);
+                t2.setText("Credits- "+usersRight.get(index).getPoints());
 
-            builder.setView(viewInflated);
+                builder.setView(viewInflated);
 
-            builder.setPositiveButton("Ok", null);
+                builder.setPositiveButton("Ok", null);
 
-            builder.show();
+                builder.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -253,7 +264,12 @@ public class TeamDetailsAdmin extends Fragment {
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    TextView t1 = getView().findViewById(R.id.EmployeeTeamDetailsAdminName2);
+                    TextView t1 = null;
+                    try {
+                        t1 = getView().findViewById(R.id.EmployeeTeamDetailsAdminName2);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     t1.setText(snapshot.getValue().toString());
                     buildListView();
 
