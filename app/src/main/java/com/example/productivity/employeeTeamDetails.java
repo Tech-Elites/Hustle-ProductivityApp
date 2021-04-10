@@ -64,9 +64,12 @@ public class employeeTeamDetails extends Fragment {
         return inflater.inflate(R.layout.fragment_employee_team_details, container, false);
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
     }
 }
