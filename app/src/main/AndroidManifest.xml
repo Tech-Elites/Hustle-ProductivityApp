@@ -14,8 +14,10 @@
         <activity android:name=".CreateNewIssue" />
         <activity android:name=".TeamDetails" />
         <activity android:name=".NotificationPage" />
-        <activity android:name=".TeamLeadLanding" />
-        <activity android:name=".EmployeeLanding" />
+        <activity android:name=".TeamLeadLanding"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".EmployeeLanding"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".LoginPage" />
         <activity android:name=".MainActivity">
             <intent-filter>

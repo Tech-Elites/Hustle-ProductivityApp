@@ -1,12 +1,23 @@
 package com.example.productivity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,13 +56,62 @@ public class NewIssueAdmin extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    EditText issueName,issueDescription,issueLink;
+    Button raiseIssue;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        issueName=getView().findViewById(R.id.inputIssueName);
+        issueDescription=getView().findViewById(R.id.inputIssueDescription);
+        issueLink=getView().findViewById(R.id.inputIssueLink);
+        raiseIssue=getView().findViewById(R.id.raiseIssueButton);
+        raiseIssue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OnClickRaiseIssue();
+            }
+        });
+    }
+
+    public void OnClickRaiseIssue()
+    {
+        String issuenameString,issueDesString,issueLinkString;
+        issuenameString=issueName.getText().toString();
+        issueDesString=issueDescription.getText().toString();
+        issueLinkString=issueLink.getText().toString();
+        if(TextUtils.isEmpty(issueDesString)||TextUtils.isEmpty(issueLinkString)||TextUtils.isEmpty(issuenameString))
+        {
+            new AlertDialog.Builder(getActivity())
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Oopss!!")
+                    .setMessage("Fill in all the details to proceed")
+                    .setPositiveButton("Ok",null)
+                    .show();
+        }
+        else
+        {
+            newIssue n=new newIssue();
+            n.setDes(issueDesString);
+            n.setLink(issueLinkString);
+            n.setName(issuenameString);
+            FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.issues).push().setValue(n).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful())
+                    {
+                        Toast.makeText(getActivity(), "Issue Added!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
     }
 
