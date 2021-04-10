@@ -15,7 +15,10 @@
             android:id="@+id/issueName"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:background="@drawable/list_view_border"
             android:textSize="30dp"
+            android:padding="6dp"
+            android:textColor="@color/black"
             android:fontFamily="@font/nexatextbold"
             android:text="Issue Name" />
 
@@ -24,8 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="20dp"
+            android:padding="6dp"
             android:scrollbars="vertical"
-
+            android:background="@drawable/list_view_border"
+            android:textColor="@color/black"
             android:fontFamily="@font/nexatextbold"
             android:text="Issue Description" />
 

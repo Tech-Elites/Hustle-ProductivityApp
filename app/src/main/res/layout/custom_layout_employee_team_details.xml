@@ -19,7 +19,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:background="@drawable/each_user"
+            android:background="@drawable/ic_baseline_supervised_user_circle_24"
 
             />
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="5dp"
             android:text="Name" />
 

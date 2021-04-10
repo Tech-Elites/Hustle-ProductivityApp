@@ -134,6 +134,7 @@ public class employeeTeamDetails extends Fragment {
             builder.setPositiveButton("Ok", null);
 
             builder.show();
+            
         }
     }
     void OnClickItemListenerForRightList(int index)
