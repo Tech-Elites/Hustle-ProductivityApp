@@ -33,7 +33,6 @@
             android:fontFamily="@font/nexabold"
             android:paddingLeft="10dp"
             android:text="Title:"
-            android:textColor="@color/black"
             android:textSize="18dp" />
 
         <TextView
@@ -44,7 +43,7 @@
             android:padding="10dp"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="22dp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -52,7 +51,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
             android:paddingLeft="10dp"
-            android:textColor="@color/black"
             android:text="Description:"
             android:textSize="18dp" />
 
@@ -64,7 +62,7 @@
             android:padding="10dp"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="22dp" />
 
         <Button
             android:id="@+id/applyButton"
