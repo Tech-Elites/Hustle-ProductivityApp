@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/employeeFeedPage"
+        android:title="Feed" android:icon="@drawable/feed_bottom_icon"/>
+    <item
+        android:id="@+id/employeeTeamDetails"
+        android:title="Team" android:icon="@drawable/team_employee"/>
+    <item
+        android:id="@+id/employeeAccountDetails"
+        android:title="Profile" android:icon="@drawable/account_bottom_employee"/>
+</menu>

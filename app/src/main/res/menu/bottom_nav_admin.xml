@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/feedAdmin2"
+        android:title="Feed" android:icon="@drawable/feed_bottom_icon"/>
+    <item
+        android:id="@+id/teamDetailsAdmin"
+        android:title="Team" android:icon="@drawable/account_bottom_admin"/>
+    <item
+        android:id="@+id/newIssueAdmin"
+        android:title="Issue" android:icon="@drawable/add_new_issue_admin"/>
+</menu>
