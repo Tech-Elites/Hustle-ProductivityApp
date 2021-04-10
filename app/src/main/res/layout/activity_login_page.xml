@@ -7,22 +7,26 @@
     android:background="@drawable/login"
     tools:context=".LoginPage">
 
-        <LinearLayout
-            android:id="@+id/Header"
+    <LinearLayout
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:fontFamily="@font/nexabold"
-                android:text="Login"
-                android:textSize="40dp"
-                android:textAlignment="center"
-                android:padding="10dp"
-                android:textColor="@color/black"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:padding="10dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="60dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
         <LinearLayout
             android:id="@+id/LoginPanel"
