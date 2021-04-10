@@ -11,15 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+
         >
 
         <TextView
             android:id="@+id/issueName"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/list_view_border"
             android:textSize="30dp"
-            android:padding="6dp"
+            android:padding="15dp"
             android:textColor="@color/black"
             android:fontFamily="@font/nexatextbold"
             android:text="Issue Name" />
@@ -29,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textSize="20dp"
-            android:padding="6dp"
+            android:padding="15dp"
             android:scrollbars="vertical"
             android:background="@drawable/list_view_border"
             android:textColor="@color/black"
@@ -41,7 +42,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:background="@drawable/list_view_border"
-            android:padding="4dp"
+            android:padding="10dp"
             >
 
             <ImageView
@@ -49,7 +50,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
+
 
                 android:background="@drawable/logoo" />
 
