@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Productivity">
-        <activity android:name=".EachIssueScreen"></activity>
+        <activity android:name=".teamLeadIssueInfo"></activity>
         <activity android:name=".IssueInfoTeamLead" />
         <activity android:name=".IssueInfoEmployee" />
         <activity android:name=".CreateNewIssue" />
