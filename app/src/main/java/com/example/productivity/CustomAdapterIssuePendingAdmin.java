@@ -31,11 +31,15 @@ public class CustomAdapterIssuePendingAdmin extends ArrayAdapter<String> {
             currentItemView = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout_issue_pending_admin, parent, false);
         }
 
-        String oneText = getItem(position);
+        try{
+            String oneText = getItem(position);
+            TextView tname = currentItemView.findViewById(R.id.customIssuePendingName);
+            tname.setText(oneText);
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
-        TextView tname = currentItemView.findViewById(R.id.customIssuePendingName);
 
-        tname.setText(oneText);
 
         return currentItemView;
     }

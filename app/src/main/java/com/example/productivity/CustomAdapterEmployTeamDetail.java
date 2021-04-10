@@ -32,15 +32,14 @@ public class CustomAdapterEmployTeamDetail extends ArrayAdapter<UserDetailClass>
             currentItemView = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout_employee_team_details, parent, false);
         }
 
-        UserDetailClass currentUser = getItem(position);
+        try{
+            UserDetailClass currentUser = getItem(position);
 
-        TextView tname = currentItemView.findViewById(R.id.customEmployeeTeamDetName);
-//        TextView temail = currentItemView.findViewById(R.id.customEmployeeTeamDetEmail);
-//        TextView tpoints = currentItemView.findViewById(R.id.customEmployeeTeamDetPoints1);
-
-        tname.setText(currentUser.getName());
-//        temail.setText(currentUser.getEmail());
-//        tpoints.setText(String.valueOf(currentUser.getPoints()));
+            TextView tname = currentItemView.findViewById(R.id.customEmployeeTeamDetName);
+            tname.setText(currentUser.getName());
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
         return currentItemView;
     }

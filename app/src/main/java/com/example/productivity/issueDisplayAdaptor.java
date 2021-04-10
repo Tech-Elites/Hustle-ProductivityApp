@@ -29,12 +29,16 @@ class issueDisplayAdaptor extends ArrayAdapter<issueClass>
         if (view == null) {
             view = LayoutInflater.from(getContext()).inflate(R.layout.customer_issue, parent, false);
         }
-        issueClass s=getItem(position);
-        TextView name=view.findViewById(R.id.issueName);
-        TextView des=view.findViewById(R.id.issueDes);
-        des.setMovementMethod(new ScrollingMovementMethod());
-        des.setText(s.getIssueDes());
-        name.setText(s.getIssueName());
+        try{
+            issueClass s=getItem(position);
+            TextView name=view.findViewById(R.id.issueName);
+            TextView des=view.findViewById(R.id.issueDes);
+            des.setMovementMethod(new ScrollingMovementMethod());
+            des.setText(s.getIssueDes());
+            name.setText(s.getIssueName());
+        }catch (Exception e){
+            System.out.println(e);
+        }
         return view;
     }
 }
