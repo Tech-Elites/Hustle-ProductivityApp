@@ -91,6 +91,7 @@ public class LoginPage extends AppCompatActivity {
                                 .setMessage("Invalid login credentials. Please check your credentials and try again.")
                                 .setPositiveButton("Yes",null)
                                 .show();
+                        p.setVisibility(View.INVISIBLE);
                     }
                 }
             });

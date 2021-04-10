@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -232,7 +234,30 @@ public class employeeTeamDetails extends Fragment {
                         }
 
                     }
+                    showAdminDetails();
+                    buildListView();
 
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    void showAdminDetails(){
+        try {
+            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.teamleadName).child("name");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    TextView t1 = getView().findViewById(R.id.EmployeeTeamDetailsAdminName);
+                    t1.setText(snapshot.getValue().toString());
                     buildListView();
 
                 }
