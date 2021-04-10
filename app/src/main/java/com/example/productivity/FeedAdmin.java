@@ -1,5 +1,6 @@
 package com.example.productivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,7 @@ public class FeedAdmin extends Fragment {
     }
     issueDisplayAdaptor issueDisplayAdaptor;
     ArrayList<issueClass> issueClassArrayList=new ArrayList<>();
+    ArrayList<String> linkList=new ArrayList<>();
     ListView issueList;
     ProgressBar adminFeedProgressbar;
     @Override
@@ -78,18 +80,22 @@ public class FeedAdmin extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         issueList=getView().findViewById(R.id.issueListTeamLead);
         adminFeedProgressbar=getView().findViewById(R.id.progressBarAdminFeed);
-        adminFeedProgressbar.setVisibility(View.VISIBLE);
+        adminFeedProgressbar.setVisibility(View.INVISIBLE);
         issueList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "Click", Toast.LENGTH_SHORT).show();
+                adminFeedProgressbar.setVisibility(View.INVISIBLE);
+                Intent intent=new Intent(getActivity(),teamLeadIssueInfo.class);
+                intent.putExtra("link",linkList.get(position));
+                startActivity(intent);
+
             }
         });
         fillTheListView();
     }
     void fillTheListView()
     {
-
+        adminFeedProgressbar.setVisibility(View.VISIBLE);
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child("issues");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,6 +121,10 @@ public class FeedAdmin extends Fragment {
                             tempName=snapshot2.getValue().toString();
 
                             i.setIssueName(tempName);
+                        }
+                        if(snapshot2.getKey().compareTo("link")==0)
+                        {
+                            linkList.add(snapshot2.getValue().toString());
                         }
 
                     }
