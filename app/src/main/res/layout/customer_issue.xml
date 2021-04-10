@@ -12,16 +12,20 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/issueName"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:textSize="30dp"
             android:fontFamily="@font/nexatextbold"
             android:text="Issue Name" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/issueDes"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
+            android:textSize="20dp"
+            android:scrollbars="vertical"
+
             android:fontFamily="@font/nexatextbold"
             android:text="Issue Description" />
 
@@ -32,24 +36,26 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_gravity="left"
+                android:background="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:background="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="left"
+                android:background="@tools:sample/avatars" />
         </LinearLayout>
 
     </LinearLayout>
