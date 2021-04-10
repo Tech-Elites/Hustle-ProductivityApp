@@ -32,6 +32,8 @@
             android:onClick="onLeavesClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -58,6 +60,9 @@
             android:onClick="onCouponsClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
@@ -86,6 +91,9 @@
             android:onClick="onSubClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
@@ -113,6 +121,9 @@
             android:onClick="onAscClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
