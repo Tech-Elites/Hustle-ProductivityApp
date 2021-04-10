@@ -10,6 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link employeeTeamDetails#newInstance} factory method to
@@ -64,12 +72,48 @@ public class employeeTeamDetails extends Fragment {
         return inflater.inflate(R.layout.fragment_employee_team_details, container, false);
     }
 
+    ArrayList<UserDetailClass> usersLeft;
+    ArrayList<UserDetailClass> usersRight;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        usersLeft = new ArrayList<>();
+        usersRight = new ArrayList<>();
+        getDetailsFromDB();
+    }
 
+    void getDetailsFromDB(){
+        try {
+            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.members);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot snapshot1:snapshot.getChildren())
+                    {
+                        String name="",uid="",email="";
+                        for(DataSnapshot snapshotSub:snapshot1.getChildren()){
+                            if(snapshotSub.getKey().compareTo("name")==0)
+                                name=snapshotSub.getValue().toString();
+                            if(snapshotSub.getKey().compareTo("userid")==0)
+                                uid=snapshotSub.getValue().toString();
+                            if(snapshotSub.getKey().compareTo("email")==0)
+                                email=snapshotSub.getValue().toString();
+                        }
+                        UserDetailClass temp = new UserDetailClass(name, email, uid);
+                        System.out.println("AEJK"+name+email+uid);
+                    }
 
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
