@@ -10,11 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Productivity">
         <activity android:name=".teamLeadIssueInfo"></activity>
-        <activity android:name=".IssueInfoTeamLead" />
-        <activity android:name=".IssueInfoEmployee" />
-        <activity android:name=".CreateNewIssue" />
-        <activity android:name=".TeamDetails" />
-        <activity android:name=".NotificationPage" />
         <activity android:name=".EachIssueScreen" />
         <activity
             android:name=".TeamLeadLanding"

@@ -37,7 +37,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/noOfCreditsAccountDetails"
                     android:layout_width="match_parent"
                     android:textColor="#fff"
                     android:layout_height="wrap_content"
