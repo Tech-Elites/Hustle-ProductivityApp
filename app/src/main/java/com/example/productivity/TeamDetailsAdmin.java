@@ -267,10 +267,11 @@ public class TeamDetailsAdmin extends Fragment {
                     TextView t1 = null;
                     try {
                         t1 = getView().findViewById(R.id.EmployeeTeamDetailsAdminName2);
+                        t1.setText(snapshot.getValue().toString());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    t1.setText(snapshot.getValue().toString());
+
                     buildListView();
 
                 }
@@ -288,11 +289,15 @@ public class TeamDetailsAdmin extends Fragment {
 
     void buildListView(){
 
-        adapterLeft = new CustomAdapterEmployTeamDetail(getActivity(), usersLeft);
-        adapterRight = new CustomAdapterEmployTeamDetail(getActivity(), usersRight);
+        try {
+            adapterLeft = new CustomAdapterEmployTeamDetail(getActivity(), usersLeft);
+            adapterRight = new CustomAdapterEmployTeamDetail(getActivity(), usersRight);
 
-        listViewLeft.setAdapter(adapterLeft);
-        listViewRight.setAdapter(adapterRight);
-        progressBarTeamDetails.setVisibility(View.INVISIBLE);
+            listViewLeft.setAdapter(adapterLeft);
+            listViewRight.setAdapter(adapterRight);
+            progressBarTeamDetails.setVisibility(View.INVISIBLE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
