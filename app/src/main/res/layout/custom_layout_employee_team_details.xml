@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="50"
+        android:padding="5dp"
         android:orientation="vertical">
+
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/each_user"
+
+            />
 
         <TextView
             android:id="@+id/customEmployeeTeamDetName"
@@ -18,22 +32,5 @@
             android:padding="5dp"
             android:text="Name" />
 
-        <TextView
-            android:id="@+id/customEmployeeTeamDetEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:text="Email" />
-
-        <TextView
-            android:id="@+id/customEmployeeTeamDetPoints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:padding="5dp"
-            android:text="Points" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

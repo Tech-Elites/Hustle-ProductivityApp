@@ -35,12 +35,12 @@ public class CustomAdapterEmployTeamDetail extends ArrayAdapter<UserDetailClass>
         UserDetailClass currentUser = getItem(position);
 
         TextView tname = currentItemView.findViewById(R.id.customEmployeeTeamDetName);
-        TextView temail = currentItemView.findViewById(R.id.customEmployeeTeamDetEmail);
-        TextView tpoints = currentItemView.findViewById(R.id.customEmployeeTeamDetPoints);
+//        TextView temail = currentItemView.findViewById(R.id.customEmployeeTeamDetEmail);
+//        TextView tpoints = currentItemView.findViewById(R.id.customEmployeeTeamDetPoints1);
 
         tname.setText(currentUser.getName());
-        temail.setText(currentUser.getEmail());
-        tpoints.setText(currentUser.getPoints());
+//        temail.setText(currentUser.getEmail());
+//        tpoints.setText(String.valueOf(currentUser.getPoints()));
 
         return currentItemView;
     }

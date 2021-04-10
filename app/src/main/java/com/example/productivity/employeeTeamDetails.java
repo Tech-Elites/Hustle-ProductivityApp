@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -74,6 +75,9 @@ public class employeeTeamDetails extends Fragment {
 
     ArrayList<UserDetailClass> usersLeft;
     ArrayList<UserDetailClass> usersRight;
+    ListView listViewLeft, listViewRight;
+    CustomAdapterEmployTeamDetail adapterLeft, adapterRight;
+    int i;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -81,6 +85,7 @@ public class employeeTeamDetails extends Fragment {
         usersLeft = new ArrayList<>();
         usersRight = new ArrayList<>();
         getDetailsFromDB();
+        i=0;
     }
 
     void getDetailsFromDB(){
@@ -102,7 +107,16 @@ public class employeeTeamDetails extends Fragment {
                         }
                         UserDetailClass temp = new UserDetailClass(name, email, uid);
                         System.out.println("AEJK"+name+email+uid);
+                        if(i%2==0){
+                            usersLeft.add(temp);
+                            i++;
+                        }
+                        else{
+                            usersRight.add(temp);
+                            i++;
+                        }
                     }
+                    readPoints();
 
                 }
 
@@ -115,5 +129,58 @@ public class employeeTeamDetails extends Fragment {
         catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    void readPoints(){
+        try {
+            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.points);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot snapshot1:snapshot.getChildren())
+                    {
+
+                        for(int i=0; i<usersRight.size(); i++){
+                            if(usersRight.get(i).uid.compareTo(snapshot1.getKey().toString())==0){
+                                usersRight.get(i).points=Integer.parseInt(snapshot1.getValue().toString());
+                                System.out.println("AEJK"+usersRight.get(i).uid+ usersRight.get(i).points);
+                                usersRight.get(i).setPoints(Integer.parseInt(snapshot1.getValue().toString()));
+                                break;
+                            }
+                        }
+                        for(int i=0; i<usersLeft.size(); i++){
+                            if(usersLeft.get(i).uid.compareTo(snapshot1.getKey().toString())==0){
+                                usersLeft.get(i).points=Integer.parseInt(snapshot1.getValue().toString());
+                                System.out.println("AEJK"+usersLeft.get(i).uid+ usersLeft.get(i).points);
+                                usersLeft.get(i).setPoints(Integer.parseInt(snapshot1.getValue().toString()));
+                                break;
+                            }
+                        }
+
+                    }
+
+                    buildListView();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    void buildListView(){
+        listViewLeft = getView().findViewById(R.id.EmployeeDetailsPageListLeft);
+        listViewRight = getView().findViewById(R.id.EmployeeDetailsPageListRight);
+        adapterLeft = new CustomAdapterEmployTeamDetail(getActivity(), usersLeft);
+        adapterRight = new CustomAdapterEmployTeamDetail(getActivity(), usersRight);
+
+        listViewLeft.setAdapter(adapterLeft);
+        listViewRight.setAdapter(adapterRight);
     }
 }
