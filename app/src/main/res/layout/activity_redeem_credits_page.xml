@@ -38,8 +38,8 @@
                 android:id="@+id/imageView8"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/redeem1" />
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/redeem1" />
 
             <TextView
                 android:layout_gravity="center"
@@ -78,8 +78,8 @@
                 android:id="@+id/imageView9"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
-                tools:srcCompat="@drawable/redeem2" />
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/redeem2" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,8 +93,8 @@
                 android:id="@+id/imageView10"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
-                tools:srcCompat="@drawable/redeem3" />
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/redeem3" />
 
             <TextView
                 android:layout_gravity="center"
@@ -133,8 +133,8 @@
                 android:id="@+id/imageView11"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_weight="1"
-                tools:srcCompat="@drawable/redeem4" />
+                android:layout_marginHorizontal="30dp"
+                android:background="@drawable/redeem4"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
