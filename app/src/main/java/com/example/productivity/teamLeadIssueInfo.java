@@ -136,7 +136,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
     }
     void OnClickElementsInList(int i)
     {
-        Toast.makeText(this, "userid- "+finaluserIdLists.get(i)+" name- "+nameList.get(i), Toast.LENGTH_SHORT).show();
+
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Are u sure?")
@@ -223,7 +223,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
     }
     void DeleteNode(String keyy)
     {
-        Toast.makeText(this, "key- "+keyy, Toast.LENGTH_SHORT).show();
+
         FirebaseDatabase.getInstance().getReference()
                 .child(tagclass.companyName).child(tagclass.teamName).child("issues").child(keyy).removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -237,7 +237,7 @@ public class teamLeadIssueInfo extends AppCompatActivity {
                         } else {
                             //enter msg or enter your code which you want to show in case of value is not remove properly or removed failed.
 
-                            Toast.makeText(teamLeadIssueInfo.this, "Remove Failed", Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });

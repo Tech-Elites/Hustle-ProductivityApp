@@ -60,7 +60,7 @@ public class LoginPage extends AppCompatActivity {
                         FirebaseUser u= firebaseAuth.getCurrentUser();
                         if(u!=null)
                         {
-                            Toast.makeText(LoginPage.this, "Logged in", Toast.LENGTH_SHORT).show();
+
                             FirebaseDatabase.getInstance().getReference().child("Arc Solutions").child("Team Alpha").child("teamlead").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
