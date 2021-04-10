@@ -35,7 +35,7 @@ public class TeamLeadLanding extends AppCompatActivity {
         {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(this, "Log out", Toast.LENGTH_SHORT).show();
+
                 finish();
                 startActivity(new Intent(this,LoginPage.class));
                 return  true;
@@ -65,7 +65,7 @@ public class TeamLeadLanding extends AppCompatActivity {
 
     public void OnClickNoti2(View view)
     {
-        Toast.makeText(this, "Hello notifications clicked", Toast.LENGTH_SHORT).show();
+
         exclaimation.setText("!");
     }
 }

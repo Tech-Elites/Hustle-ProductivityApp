@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser u= FirebaseAuth.getInstance().getCurrentUser();
         if(u!=null)
         {
-            Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
+            
             FirebaseDatabase.getInstance().getReference().child("Arc Solutions").child("Team Alpha").child("teamlead").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
