@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
             android:padding="10dp"
-            android:text="TextView"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nexabold"
             android:padding="10dp"
-            android:text="TextView"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="20dp" />
 
