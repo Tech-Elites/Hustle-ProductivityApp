@@ -28,7 +28,7 @@
             android:text="Redeem your credits!!" />
 
         <LinearLayout
-
+            android:background="@drawable/redeem_layout_border"
             android:onClick="onLeavesClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,6 +58,7 @@
             android:onClick="onCouponsClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
             <TextView
@@ -85,6 +86,7 @@
             android:onClick="onSubClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
             <ImageView
@@ -111,6 +113,7 @@
             android:onClick="onAscClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/redeem_layout_border"
             android:orientation="horizontal">
 
             <TextView
