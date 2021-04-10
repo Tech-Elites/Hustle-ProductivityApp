@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".teamLeadIssueInfo">
+    tools:context=".teamLeadIssueInfo"
+    android:background="@drawable/viewissue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,40 +13,71 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="90dp"
         tools:layout_editor_absoluteY="120dp"
-        android:paddingTop="60dp">
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nexabold"
+            android:padding="10dp"
+            android:text="Issue Details:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/issueNameTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:text="Title" />
 
         <TextView
             android:id="@+id/issueDesTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="10dp"
+            android:text="Description"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/issueLinkTeamLeadIssueInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="10dp"
+            android:text="Link"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Appllied members-" />
+            android:layout_marginTop="10dp"
+            android:text="Appllied members-"
+            android:textSize="16dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"/>
 
         <ListView
             android:layout_width="match_parent"
             android:id="@+id/listOfNamesLead"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/t10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:textSize="18dp"
             android:text="No applications for far" />
 
     </LinearLayout>
