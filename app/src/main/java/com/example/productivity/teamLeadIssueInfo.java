@@ -53,9 +53,13 @@ public class teamLeadIssueInfo extends AppCompatActivity {
         iDes=findViewById(R.id.issueDesTeamLeadIssueInfo);
         headingApplication=findViewById(R.id.textView9);
         iLink=findViewById(R.id.issueLinkTeamLeadIssueInfo);
-        arrayAdapter=new CustomAdapterIssuePendingAdmin(this, nameList);
+        try {
+            arrayAdapter=new CustomAdapterIssuePendingAdmin(this, nameList);
+            listOfSubmissions.setAdapter(arrayAdapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         listOfSubmissions=findViewById(R.id.listOfNamesLead);
-        listOfSubmissions.setAdapter(arrayAdapter);
         listOfSubmissions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -280,8 +284,12 @@ public class teamLeadIssueInfo extends AppCompatActivity {
                     {
                         headingApplication.setText("Applications so far-");
                         nameList.add(name);
-                        arrayAdapter=new CustomAdapterIssuePendingAdmin(teamLeadIssueInfo.this, nameList);
-                        listOfSubmissions.setAdapter(arrayAdapter);
+                        try {
+                            arrayAdapter=new CustomAdapterIssuePendingAdmin(teamLeadIssueInfo.this, nameList);
+                            listOfSubmissions.setAdapter(arrayAdapter);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 p.setVisibility(View.INVISIBLE);
