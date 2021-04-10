@@ -4,28 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffd706"
+    android:background="@drawable/mainpage"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginTop="418dp"
         android:layout_marginEnd="88dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="192dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="223dp"
-            android:layout_height="208dp"
-            android:background="@drawable/logo"
-            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/textView4"
