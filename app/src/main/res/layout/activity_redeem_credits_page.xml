@@ -12,28 +12,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-
-            android:textSize="30dp"
-            android:padding="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nexabold"
 
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="Redeem your credits!!" />
+            android:fontFamily="@font/nexabold"
+            android:padding="10dp"
+
+            android:text="Redeem your credits!!"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
 
         <LinearLayout
-            android:background="@drawable/redeem_layout_border"
-            android:onClick="onLeavesClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/redeem_layout_border"
+            android:onClick="onLeavesClick"
             android:orientation="horizontal">
 
             <ImageView
@@ -44,40 +45,40 @@
                 android:background="@drawable/redeem1" />
 
             <TextView
-                android:layout_gravity="center"
-                android:fontFamily="@font/nexabold"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:padding="12dp"
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Leaves-Holidays\n1000C" />
+                android:fontFamily="@font/nexabold"
+                android:padding="12dp"
+                android:text="Leaves-Holidays\n1000C"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:onClick="onCouponsClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
+            android:onClick="onCouponsClick"
             android:orientation="horizontal">
 
             <TextView
-                android:paddingLeft="40dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/nexabold"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:paddingVertical="12dp"
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Coupons\n400C" />
+                android:fontFamily="@font/nexabold"
+                android:paddingVertical="12dp"
+                android:paddingLeft="40dp"
+                android:text="Coupons\n400C"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -88,13 +89,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:onClick="onSubClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
+            android:onClick="onSubClick"
             android:orientation="horizontal">
 
             <ImageView
@@ -105,47 +106,47 @@
                 android:background="@drawable/redeem3" />
 
             <TextView
-                android:layout_gravity="center"
-                android:fontFamily="@font/nexabold"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:padding="12dp"
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Subscriptions\n700C" />
+                android:fontFamily="@font/nexabold"
+                android:padding="12dp"
+                android:text="Subscriptions\n700C"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:onClick="onAscClick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/redeem_layout_border"
+            android:onClick="onAscClick"
             android:orientation="horizontal">
 
             <TextView
-                android:paddingLeft="40dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/nexabold"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:paddingVertical="12dp"
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Accesories\n1800C" />
+                android:fontFamily="@font/nexabold"
+                android:paddingVertical="12dp"
+                android:paddingLeft="40dp"
+                android:text="Accesories\n1800C"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/redeem4"/>
+                android:background="@drawable/redeem4" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
