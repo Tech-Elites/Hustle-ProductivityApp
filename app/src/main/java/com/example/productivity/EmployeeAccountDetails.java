@@ -200,8 +200,12 @@ public class EmployeeAccountDetails extends Fragment {
                 nameOfTheEmployee.setText(name);
                 noOfCredits.setText("Credits- "+credits);
                 noOfPendingApplications.setText("Pending- "+Integer.toString(count));
-                customAdapterIssuePendingAdmin=new CustomAdapterIssuePendingAdmin(getActivity(),issueNames);
-                lPending.setAdapter(customAdapterIssuePendingAdmin);
+                try {
+                    customAdapterIssuePendingAdmin=new CustomAdapterIssuePendingAdmin(getActivity(),issueNames);
+                    lPending.setAdapter(customAdapterIssuePendingAdmin);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 p.setVisibility(View.INVISIBLE);
                 redeemButton.setVisibility(View.VISIBLE);
             }

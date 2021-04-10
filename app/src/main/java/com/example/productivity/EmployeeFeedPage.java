@@ -142,9 +142,12 @@ public class EmployeeFeedPage extends Fragment {
                     issueClassArrayList.add(i);
                 }
                 adminFeedProgressbar.setVisibility(View.INVISIBLE);
-                issueDisplayAdaptor=new issueDisplayAdaptor(getActivity(),issueClassArrayList);
-                issueList.setAdapter(issueDisplayAdaptor);
-
+                try {
+                    issueDisplayAdaptor=new issueDisplayAdaptor(getActivity(),issueClassArrayList);
+                    issueList.setAdapter(issueDisplayAdaptor);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
 
             }
