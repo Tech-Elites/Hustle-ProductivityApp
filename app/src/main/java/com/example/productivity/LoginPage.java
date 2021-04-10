@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class LoginPage extends AppCompatActivity {
     ProgressBar p;
     FirebaseAuth firebaseAuth;
@@ -59,39 +61,26 @@ public class LoginPage extends AppCompatActivity {
                         if(u!=null)
                         {
                             Toast.makeText(LoginPage.this, "Logged in", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(LoginPage.this, EmployeeLanding.class);
-                            finish();
-                            startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
-//                            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("userinfo").child("customer");
-//                            databaseReference.addValueEventListener(new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                    int flag=1;
-//                                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
-//                                    {
-//                                        if(u.getUid().compareTo(dataSnapshot.getKey())==0)
-//                                        {
-//                                            p.setVisibility(View.INVISIBLE);
-//                                            finish();
-//                                            Intent i = new Intent(LoginPage.this, EmployeeLanding.class);
-//                                            startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
-//                                            flag=0;
-//                                            break;
-//                                        }
-//                                    }
-//                                    if(flag==1)
-//                                    {
-//                                        finish();
-//                                        Intent i = new Intent(LoginPage.this, TeamLeadLanding.class);
-//                                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
-//                                    }
-//                                }
-//
-//                                @Override
-//                                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                }
-//                            });
+                            FirebaseDatabase.getInstance().getReference().child("Arc Solutions").child("Team Alpha").child("teamlead").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                    userinfo uu=task.getResult().getValue(userinfo.class);
+                                    if(uu.getUserid().compareTo(u.getUid())==0)
+                                    {
+                                        Intent i = new Intent(LoginPage.this,TeamLeadLanding.class);
+                                        finish();
+                                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+
+                                    }
+                                    else
+                                    {
+                                        Intent i = new Intent(LoginPage.this, EmployeeLanding.class);
+                                        finish();
+                                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                                    }
+
+                                }
+                            });
                         }
                     }
                     else
