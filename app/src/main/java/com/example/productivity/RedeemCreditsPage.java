@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -33,7 +34,6 @@ public class RedeemCreditsPage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 current=Integer.parseInt(snapshot.getValue().toString());
-                Toast.makeText(RedeemCreditsPage.this, current+" ", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -52,6 +52,18 @@ public class RedeemCreditsPage extends AppCompatActivity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.points).child(user.getUid()).setValue(current-i);
+                        new AlertDialog.Builder(RedeemCreditsPage.this)
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setTitle("Successfull!")
+                                .setMessage("Your order has been completed.")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                        startActivity(new Intent(RedeemCreditsPage.this, EmployeeLanding.class));
+                                    }
+                                })
+                                .show();
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:

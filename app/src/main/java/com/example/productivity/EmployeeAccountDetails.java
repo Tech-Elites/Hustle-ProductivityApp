@@ -1,5 +1,7 @@
 package com.example.productivity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,6 +72,9 @@ public class EmployeeAccountDetails extends Fragment {
     TextView noOfCredits,nameOfTheEmployee,noOfPendingApplications;
     String name,credits,pending,userId;
     int count=0;
+    Button redeemButton;
+    ProgressBar p;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +94,16 @@ public class EmployeeAccountDetails extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        p=getView().findViewById(R.id.employeeAccountDetailsProgress);
+        p.setVisibility(View.VISIBLE);
+        redeemButton=getView().findViewById(R.id.redeemButton);
+        redeemButton.setVisibility(View.INVISIBLE);
+        redeemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickRedeem();
+            }
+        });
         noOfCredits=getView().findViewById(R.id.noOfCreditsAccountDetails);
         nameOfTheEmployee=getView().findViewById(R.id.nameOfTheEmployeeAccountDetails);
         noOfPendingApplications=getView().findViewById(R.id.noofPendingAppliAccountDetails);
@@ -99,7 +116,15 @@ public class EmployeeAccountDetails extends Fragment {
         }
 
 
+
+
     }
+
+    public void onClickRedeem(){
+        Intent i = new Intent(getActivity(),RedeemCreditsPage.class);
+        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+    }
+
     void fillTheBasicInfo()
     {
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child("members");
@@ -177,7 +202,8 @@ public class EmployeeAccountDetails extends Fragment {
                 noOfPendingApplications.setText("Pending- "+Integer.toString(count));
                 customAdapterIssuePendingAdmin=new CustomAdapterIssuePendingAdmin(getActivity(),issueNames);
                 lPending.setAdapter(customAdapterIssuePendingAdmin);
-
+                p.setVisibility(View.INVISIBLE);
+                redeemButton.setVisibility(View.VISIBLE);
             }
 
             @Override
