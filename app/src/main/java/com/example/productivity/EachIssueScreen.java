@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -128,10 +129,15 @@ public class EachIssueScreen extends AppCompatActivity {
     public void eachIssueEmployeeApply(View view) {
         FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.issues).child(issueID).child("applied").push().setValue(user.getUid());
         new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Submitted")
-                .setMessage("Your changes have been submitted.")
-                .setPositiveButton("Ok",null)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle("Success!")
+                .setMessage("Applied changes submitted.")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
                 .show();
     }
 }
