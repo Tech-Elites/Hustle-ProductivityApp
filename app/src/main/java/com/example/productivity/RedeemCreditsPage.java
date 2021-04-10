@@ -3,6 +3,8 @@ package com.example.productivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -41,15 +43,71 @@ public class RedeemCreditsPage extends AppCompatActivity {
         });
     }
 
+
+
+    void showRedBox(int i){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child(tagclass.points).child(user.getUid()).setValue(current-i);
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are your sure you want to redeem it with "+i+"C?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+    }
+
+    void showLowBox(){
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Insufficient credits!")
+                .setMessage("Please check your credit balance and try again.")
+                .setPositiveButton("Yes",null)
+                .show();
+    }
+
     public void onLeavesClick(View view) {
+        if(current>=1000){
+            showRedBox(1000);
+        }
+        else{
+            showLowBox();
+        }
     }
 
     public void onCouponsClick(View view) {
+        if(current>=400){
+            showRedBox(400);
+        }
+        else{
+            showLowBox();
+        }
     }
 
     public void onSubClick(View view) {
+        if(current>=700){
+            showRedBox(700);
+        }
+        else{
+            showLowBox();
+        }
     }
 
     public void onAscClick(View view) {
+        if(current>=1800){
+            showRedBox(1800);
+        }
+        else{
+            showLowBox();
+        }
     }
 }
