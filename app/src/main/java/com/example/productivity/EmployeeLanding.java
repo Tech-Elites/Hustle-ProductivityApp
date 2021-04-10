@@ -44,8 +44,8 @@ public class EmployeeLanding extends AppCompatActivity {
             default:
                 return false;
         }
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +63,7 @@ public class EmployeeLanding extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this,  R.id.fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
+
     public void OnClickNoti(View view)
     {
         Toast.makeText(this, "Hello notifications clicked", Toast.LENGTH_SHORT).show();
