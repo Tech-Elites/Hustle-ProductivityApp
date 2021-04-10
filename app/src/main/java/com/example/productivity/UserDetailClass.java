@@ -1,13 +1,13 @@
 package com.example.productivity;
 
 public class UserDetailClass {
-    String name, email;
+    String name, email, uid;
     int points;
 
-    public UserDetailClass(String name, String email, int points) {
+    public UserDetailClass(String name, String email, String uid) {
         this.name = name;
         this.email = email;
-        this.points = points;
+        this.uid = uid;
     }
 
     public UserDetailClass() {
