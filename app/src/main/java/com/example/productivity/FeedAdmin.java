@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -61,6 +62,7 @@ public class FeedAdmin extends Fragment {
     issueDisplayAdaptor issueDisplayAdaptor;
     ArrayList<issueClass> issueClassArrayList=new ArrayList<>();
     ListView issueList;
+    ProgressBar adminFeedProgressbar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,18 +76,46 @@ public class FeedAdmin extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         issueList=getView().findViewById(R.id.issueListTeamLead);
+        adminFeedProgressbar=getView().findViewById(R.id.progressBarAdminFeed);
+        adminFeedProgressbar.setVisibility(View.VISIBLE);
         fillTheListView();
     }
     void fillTheListView()
     {
+
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child(tagclass.companyName).child(tagclass.teamName).child("issues");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Toast.makeText(getActivity(), "Here", Toast.LENGTH_SHORT).show();
+
                 for(DataSnapshot snapshot1:snapshot.getChildren())
                 {
-                    Toast.makeText(getActivity(), ""+snapshot1.getValue(), Toast.LENGTH_SHORT).show();
+                    issueClass i=new issueClass();
+                    for(DataSnapshot snapshot2:snapshot1.getChildren())
+                    {
+                        String tempDes,tempName;
+
+
+                        if(snapshot2.getKey().compareTo("des")==0)
+                        {
+                            tempDes=snapshot2.getValue().toString();
+
+                            i.setIssueDes(tempDes);
+                        }
+                        if(snapshot2.getKey().compareTo("name")==0)
+                        {
+                            tempName=snapshot2.getValue().toString();
+
+                            i.setIssueName(tempName);
+                        }
+
+                    }
+                    issueClassArrayList.add(i);
                 }
+                adminFeedProgressbar.setVisibility(View.INVISIBLE);
+                issueDisplayAdaptor=new issueDisplayAdaptor(getActivity(),issueClassArrayList);
+                issueList.setAdapter(issueDisplayAdaptor);
             }
 
             @Override
@@ -93,6 +123,8 @@ public class FeedAdmin extends Fragment {
 
             }
         });
+
+
     }
 
     @Override
